@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: frontend-ingress
+  namespace: apps
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`frontend.74.179.216.236.nip.io`)
+      services:
+        - name: frontend-service
+          port: 80
